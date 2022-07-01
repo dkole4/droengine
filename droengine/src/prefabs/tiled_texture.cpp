@@ -70,10 +70,9 @@ namespace Engine
                                                SPRITE_SIZE_PX)
                 };
 
-                // Draw only those line that can at least
+                // Draw only those lines that can at least
                 // partially appear on the screen.
-                if (screen_rect.is_overlapped(line_rect) ||
-                    line_rect.is_overlapped(screen_rect))
+                if (screen_rect.is_overlapped(line_rect))
                 {
                     window.draw_tile_line(sprite, line, camera_offset);
                 }
