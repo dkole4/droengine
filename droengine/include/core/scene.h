@@ -15,6 +15,7 @@
 namespace Engine
 {
     using GameObject_ptr = std::shared_ptr<GameObject>;
+    using RenderOrder = std::vector<std::vector<std::vector<size_t>>>;
 
     enum class CameraType
     {
@@ -107,6 +108,15 @@ namespace Engine
          * @return std::vector<GameObject_ptr>& Vector of GameObject pointers.
          */
         std::vector<GameObject_ptr>& get_scene_objects();
+
+        /**
+         * @brief Gets current camera offset of the scene.
+         * 
+         * @return const Vector2D<int>& Camera offset of the scene.
+         */
+        const Vector2D<int>& get_camera_offset();
+
+        RenderOrder render_order;
 
     private:
         size_t         player_ind_;

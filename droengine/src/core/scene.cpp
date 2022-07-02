@@ -3,13 +3,16 @@
 namespace Engine
 {
     Scene::Scene(CameraType cam_type):
+        render_order(),
         player_ind_(0),
         camera_type_(cam_type),
         camera_offset_(0, 0),
         scene_objects_(),
         named_objects_(),
         tagged_objects_()
-    { }
+    {
+        init_render_order_vector(render_order);
+    }
 
     void Scene::update_scene()
     {
@@ -28,7 +31,8 @@ namespace Engine
     {
         window.clear();
 
-        for (auto& sprite_layer : get_render_order(*this, camera_offset_))
+        configure_render_order(*this);
+        for (auto& sprite_layer : render_order)
         {
             for (auto& render_line : sprite_layer)
             {
@@ -115,5 +119,10 @@ namespace Engine
     GameObject_ptr& Scene::get_player_object()
     {
         return scene_objects_[player_ind_];
+    }
+    
+    const Vector2D<int>& Scene::get_camera_offset()
+    {
+        return camera_offset_;
     }
 }

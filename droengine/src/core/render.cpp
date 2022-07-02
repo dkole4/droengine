@@ -9,12 +9,11 @@ namespace Engine
 {
     using namespace Prefabs;
 
-    RenderOrder get_render_order(
-        Scene& scene,
-        const Vector2D<int>& camera_offset
-    ) {
-        RenderOrder render_order {};
-        init_render_order_vector(render_order);     
+    void configure_render_order(Scene& scene) {
+        RenderOrder&         render_order  { scene.render_order };
+        const Vector2D<int>& camera_offset { scene.get_camera_offset() };
+
+        reset_render_order_vector(render_order);
 
         // Current screen rect in game world space.
         const BoxRect screen_rect { 
@@ -55,8 +54,6 @@ namespace Engine
                         .push_back(i);
             }
         }
-
-        return render_order;
     }
 
     void init_render_order_vector(RenderOrder& render_order)
@@ -67,6 +64,17 @@ namespace Engine
             for (int j = 0; j < WINDOW_HEIGHT; ++j)
             {
                 render_order[i].push_back({});
+            }
+        }
+    }
+
+    void reset_render_order_vector(RenderOrder& render_order)
+    {
+        for (auto& layer : render_order)
+        {
+            for (auto& line : layer)
+            {
+                line.clear();
             }
         }
     }
