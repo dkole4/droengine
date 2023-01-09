@@ -4,6 +4,8 @@
 
 Repository includes the engine and a small demo showing the current capabilities of the engine.
 
+![demonstration of the demo game scene](demo.gif)
+
 ## Implemented features
 
 ### Components
