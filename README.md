@@ -13,7 +13,7 @@ Repository includes the engine and a small demo showing the current capabilities
 - Animator component
   - Uses the position of current animation frame (sprite) on the spritesheet.
 - Rigidbody
-  - Detects collisions and takes into account the weight of an object.
+  - Detects and resolves collisions taking into account weights of colliding objects.
 - Collider
   - Represents the physical body of an object. Currently available only as a rectangle.
 
