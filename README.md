@@ -6,6 +6,9 @@ Repository includes the engine and a small demo showing the current capabilities
 
 ![demonstration of the demo game scene](demo.gif)
 
+## Running the demo
+To compile the engine with the demo, go to `game` folder of the repository and run `make default`. To clean the repository up after compiling, run `make clean` in the same folder.
+
 ## Implemented features
 
 ### Components
@@ -28,6 +31,3 @@ Repository includes the engine and a small demo showing the current capabilities
 ### Utilities
 - Scene builder
   - Basic scene builder that generates a game scene using a symbol map of the scene made with and prefabs representing the symbols.
-
-## Running the demo
-To compile the engine with the demo, go to `game` folder of the repository and run `make default`. To clean the repository up after compiling, run `make clean` in the same folder.
